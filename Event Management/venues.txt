@@ -1,0 +1,7 @@
+1|Skyline Grand Ballroom|400|Downtown City Center|18000|1|1
+2|Innovation Hub Conference Hall|250|Tech Business Park|12000|0|0
+3|Garden Pavilion|300|Botanical Gardens|14000|0|0
+4|Executive Boardroom|50|Corporate Tower|6000|0|0
+5|University Auditorium|600|City University Campus|20000|0|0
+6|Rooftop Terrace|150|Luxury Hotel Downtown|10000|0|0
+7|Tech Expo Hall|800|Convention Center|25000|1|1
