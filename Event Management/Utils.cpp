@@ -27,7 +27,7 @@ bool isValidDateFormat(const string& date) {
     if (day < 1 || day > 31) return false;
     if (month < 1 || month > 12) return false;
     if (year < 2025 || year > 2030) return false;
-
+   
     return true;
 }
 

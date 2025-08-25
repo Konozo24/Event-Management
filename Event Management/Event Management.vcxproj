@@ -125,9 +125,11 @@
   <ItemGroup>
     <ClCompile Include="Booking.cpp" />
     <ClCompile Include="EventManagement.cpp" />
+    <ClCompile Include="Feedback.cpp" />
     <ClCompile Include="Guest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monitoring.cpp" />
+    <ClCompile Include="Payment.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="Utils.h" />
     <ClCompile Include="Venue.cpp" />
@@ -135,8 +137,11 @@
   <ItemGroup>
     <ClInclude Include="Booking.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Feedback.h" />
     <ClInclude Include="Guest.h" />
     <ClInclude Include="Monitoring.h" />
+    <ClInclude Include="Payment.h" />
+    <ClInclude Include="Product.h" />
     <ClInclude Include="Venue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
