@@ -8,8 +8,6 @@
 using namespace std;
 
 // Payment functions
-void userCheckout(const string& name, const string& eventName, int ticketAmount, double ticketPrice,
-    const vector<Product>& selectedProducts);
 void processPayment(const string& guestID);
 void viewReceipts();
 

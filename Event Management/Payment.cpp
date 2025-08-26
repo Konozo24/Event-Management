@@ -66,7 +66,7 @@ void saveReceipt(const string& name, const string& eventName,
     out << "----------------------------------\n\n";
 
     out.close();
-    
+
     cout << "\nPayment successful! Receipt saved.\n";
 }
 
@@ -80,7 +80,7 @@ void processPayment(const string& guestID) {
     double ticketPrice = 30.0;
 
     // Dummy selected products (later link with Registration module)
-    vector<Product> products = { {"SmartWatch Pro", 299.0, 1} };
+    vector<Product> selectedProducts = { {"SmartWatch Pro", 299.0, 1} };
 
     double productTotal = 0.0;
 
@@ -89,11 +89,11 @@ void processPayment(const string& guestID) {
     cout << "Name        : " << name << endl;
     cout << "Event       : " << eventName << endl;
 
-    if (products.empty()) {
+    if (selectedProducts.empty()) {
         cout << "Product         : None\n";
     }
     else {
-        for (const auto& p : products) {
+        for (const auto& p : selectedProducts) {
             if (p.quantity > 0) {
                 double subtotal = p.price * p.quantity;
                 cout << "Product         : "
@@ -119,7 +119,7 @@ void processPayment(const string& guestID) {
     getline(cin, method);
 
     if (method == "Cash" || method == "Credit" || method == "E-Wallet") {
-        saveReceipt(name, eventName, products, ticketAmount, ticketPrice, method);
+        saveReceipt(name, eventName, selectedProducts, ticketAmount, ticketPrice, method);
     }
     else {
         cout << "\nInvalid payment method.\n";
