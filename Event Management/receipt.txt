@@ -18,3 +18,27 @@ Total           : RM329.00
 Payment Method  : Cash
 ----------------------------------
 
+Receipt #3:
+Name            : TEMP_NAME
+Event           : TEMP_EVENT
+Product         : SmartWatch Pro x 1 = RM299.00
+Ticket          : RM30.00 x 1 = RM30.00
+Product Total   : RM299.00
+Total           : RM329.00
+Payment Method  : Cash
+----------------------------------
+
+Receipt #4:
+Registration ID        : R4
+Name            : Ming Wei
+Event           : Lebron James Launch (E1)
+Tickets         : 2
+Ticket Price    : RM20.00
+Ticket Total    : RM40.00
+Product         : SmartWatch Pro x 1 = RM299.00
+Ticket Price    : RM40.00
+Product Total   : RM299.00
+Total           : RM339.00
+Payment Method  : Cash
+----------------------------------
+

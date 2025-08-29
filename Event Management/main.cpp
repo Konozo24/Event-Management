@@ -6,6 +6,9 @@
 #include "Monitoring.h"
 #include "Payment.h"
 #include "Feedback.h"
+#include "Tickets.h"
+#include "Registration.h"
+#include "Report.h"
 #include "Utils.h"
 using namespace std;
 
@@ -13,8 +16,10 @@ using namespace std;
 
 int main() {
     cout << "=" << string(60, '=') << endl;
-    cout << "    TAN MING WEI - EVENT MANAGEMENT MODULES" << endl;
+    cout << "EVENT MANAGEMENT MODULES" << endl;
     cout << "=" << string(60, '=') << endl;
+
+    initializeDefaultRegistration();
 
     int choice;
     do {
@@ -24,10 +29,12 @@ int main() {
         cout << "1. Event Booking (Module 1)" << endl;
         cout << "2. Event Monitoring (Module 2)" << endl;
         cout << "3. View Available Venues" << endl;
-        cout << "4. Payment & Checkout (Module 6)" << endl;
+        cout << "4. View Receipts Guest (Module 6)" << endl;
         cout << "5. Submit Feedback & Review (Module 7)" << endl;
         cout << "6. View Receipts (Admin)" << endl;
         cout << "7. View Feedbacks (Admin)" << endl;
+        cout << "8. Register Events / Ticketing" << endl;
+        cout << "9. Event Reporting (Admin)" << endl;
         cout << "0. Exit" << endl;
         cout << string(50, '-') << endl;
         cout << "Enter your choice: ";
@@ -56,10 +63,7 @@ int main() {
             clearScreen();
             break;
         case 4: {
-            string guestID;
-            cout << "Enter your Guest ID: ";
-            getline(cin, guestID);
-            processPayment(guestID);
+            viewReceipts();
             break;
         }
         case 5:
@@ -70,6 +74,12 @@ int main() {
             break;
         case 7:
             viewFeedback();
+            break;
+        case 8:
+            tickets();
+            break;
+        case 9:
+            displayReportMenu();
             break;
         case 0:
             cout << "\nThank you for using the system!" << endl;

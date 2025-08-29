@@ -1,0 +1,3 @@
+R1|E1|Concert A|10-12-2025|Alice|2|200.00
+R2|E2|Concert B|11-12-2025|Bob|1|120.00
+R3|E3|Concert C|12-12-2025|Charlie|3|450.00
