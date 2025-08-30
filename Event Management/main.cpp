@@ -34,6 +34,8 @@ int main() {
         cout << "7. View Feedbacks (Admin)" << endl;
         cout << "8. Register Events / Ticketing" << endl;
         cout << "9. Event Reporting (Admin)" << endl;
+        cout << "10. Marketing (User)" << endl;
+        cout << "11. Marketing (Admin)" << endl;
         cout << "0. Exit" << endl;
         cout << string(50, '-') << endl;
         cout << "Enter your choice: ";
@@ -80,6 +82,12 @@ int main() {
             break;
         case 9:
             displayReportMenu();
+            break;
+        case 10:
+            marketingUser(); 
+            break;
+        case 11:
+            marketingAdmin();
             break;
         case 0:
             cout << "\nThank you for using the system!" << endl;
