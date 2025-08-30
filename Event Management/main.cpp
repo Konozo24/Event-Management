@@ -19,7 +19,6 @@ int main() {
     cout << "EVENT MANAGEMENT MODULES" << endl;
     cout << "=" << string(60, '=') << endl;
 
-    initializeDefaultRegistration();
 
     int choice;
     do {
@@ -54,6 +53,7 @@ int main() {
             break;
         case 2:
             monitorEvent();
+            clearScreen();
             break;
         case 3:
             loadVenuesFromFile();

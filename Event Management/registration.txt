@@ -1,3 +1,2 @@
-R1|E1|Concert A|10-12-2025|Alice|2|200.00
-R2|E2|Concert B|11-12-2025|Bob|1|120.00
-R3|E3|Concert C|12-12-2025|Charlie|3|450.00
+R1|E1|Lebron James|24-12-2025|Yew|12|144.00
+R2|E1|Lebron James|24-12-2025|Wei|3|36.00
