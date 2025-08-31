@@ -1,28 +1,42 @@
 Receipt #1:
 Registration ID        : R1
-Name            : Yew
-Event           : Lebron James (E1)
-Tickets         : 12
-Ticket Price    : RM12.00
-Ticket Total    : RM144.00
+Name            : Ming
+Event           : Lebron Tales (E1)
+Tickets         : 2
+Ticket Price    : RM21.00
+Ticket Total    : RM42.00
 Product         : SmartWatch Pro x 1 = RM299.00
-Ticket Price    : RM144.00
+Ticket Price    : RM42.00
 Product Total   : RM299.00
-Total           : RM443.00
+Total           : RM341.00
 Payment Method  : Cash
 ----------------------------------
 
 Receipt #2:
 Registration ID        : R2
 Name            : Wei
-Event           : Lebron James (E1)
+Event           : Lebron Tales (E1)
 Tickets         : 3
-Ticket Price    : RM12.00
-Ticket Total    : RM36.00
+Ticket Price    : RM21.00
+Ticket Total    : RM63.00
 Product         : SmartWatch Pro x 1 = RM299.00
-Ticket Price    : RM36.00
+Ticket Price    : RM63.00
 Product Total   : RM299.00
-Total           : RM335.00
+Total           : RM362.00
 Payment Method  : Credit
+----------------------------------
+
+Receipt #3:
+Registration ID        : R3
+Name            : Cled
+Event           : Stephen Tales (E2)
+Tickets         : 1
+Ticket Price    : RM40.00
+Ticket Total    : RM40.00
+Product         : SmartWatch Pro x 1 = RM299.00
+Ticket Price    : RM40.00
+Product Total   : RM299.00
+Total           : RM339.00
+Payment Method  : Cash
 ----------------------------------
 

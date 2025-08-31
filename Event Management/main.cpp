@@ -4,6 +4,7 @@
 #include "Guest.h"
 #include "Booking.h"
 #include "Monitoring.h"
+#include "Marketing.h"
 #include "Payment.h"
 #include "Feedback.h"
 #include "Tickets.h"
@@ -15,6 +16,8 @@ using namespace std;
 
 
 int main() {
+    initializeDefaultVenues();
+
     cout << "=" << string(60, '=') << endl;
     cout << "EVENT MANAGEMENT MODULES" << endl;
     cout << "=" << string(60, '=') << endl;
@@ -80,9 +83,12 @@ int main() {
         case 8:
             tickets();
             break;
-        case 9:
-            displayReportMenu();
+        case 9: {
+            Report report;
+            report.displayReportMenu();
             break;
+        }
+            
         case 10:
             marketingUser(); 
             break;

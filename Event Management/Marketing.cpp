@@ -17,6 +17,7 @@ struct MarketingItem {
     string name;
     double price;
     int quantity;
+
 };
 
 static vector<MarketingItem> products;

@@ -1,35 +1,35 @@
-#pragma once
 #ifndef REPORT_H
 #define REPORT_H
 
 #include <iostream>
 #include <vector>
 #include <string>
+#include <unordered_map>
 using namespace std;
 
 struct BookingSummary {
     string eventName;
     string date;
-    string venue;
     int totalGuests;
     int checkedInGuests;
+    string venue;
 };
 
 class Report {
 private:
     vector<BookingSummary> summaries;
 
-public:
-    void loadRegistrationData(const string& filename);
-    void loadCheckInData(const string& filename);
-    void loadVenueData(const string& filename);
-    void displayAllEventsSummary();
-    void displayAttendanceReport();
-    void displayVenueUsage();
-    void exportReportToFile(const string& filename);
-};
+    void loadRegistration(const string& filename);
+    void loadGuests(const string& filename);
+    void loadVenues(const string& filename);
+    void loadEvents(const string& filename);
 
-// function to show the menu
-void displayReportMenu();
+    unordered_map<string, string> venueMap;      // venueID -> venueName
+    unordered_map<string, string> eventVenueMap; // eventID -> venueID
+
+public:
+    void generateReport();
+    void displayReportMenu();
+};
 
 #endif

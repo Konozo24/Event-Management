@@ -80,8 +80,8 @@ void bookEvent() {
     } while (!isValidDateFormat(eventDate));
 
     // Venue selection with validation
-    int selectedVenueID = validateVenueSelection();
-    if (selectedVenueID == 0) {
+    string selectedVenueID = validateVenueSelection();
+    if (selectedVenueID == "0") {
         cout << "Booking cancelled." << endl;
         return;
     }
@@ -143,7 +143,7 @@ void bookEvent() {
     string newEventID = "E" + to_string(nextEventNum);
 
     // Create new Event object
-    Event newEvent(newEventID, eventName, eventDate, "V" + to_string(selectedVenueID),
+    Event newEvent(newEventID, eventName, eventDate, selectedVenueID,
         vendorDetails, ticketPrice, ticketAmount);
 
     // Add to global vector
@@ -162,7 +162,7 @@ void bookEvent() {
     cout << "Event ID: " << newEventID << endl;
     cout << "Event Name: " << eventName << endl;
     cout << "Event Date: " << eventDate << endl;
-    cout << "Venue ID: V" << selectedVenueID << endl;
+    cout << "Venue ID: " << selectedVenueID << endl;
     cout << "Vendor Details: " << vendorDetails << endl;
     cout << "Status: Successfully Booked!" << endl;
     cout << string(60, '=') << endl;
