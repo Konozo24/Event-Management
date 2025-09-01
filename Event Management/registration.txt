@@ -1,3 +1,1 @@
-R1|E1|Lebron Tales|12-12-2025|Ming|2|42.00
-R2|E1|Lebron Tales|12-12-2025|Wei|3|63.00
-R3|E2|Stephen Tales|12-11-2025|Cled|1|40.00
+R1|E1|Lebron Tales|12-12-2025|Wei|2|42.00
