@@ -1,14 +1,42 @@
 Receipt #1:
 Registration ID        : R1
+Name            : Ming
+Event           : Lebron Tales (E1)
+Tickets         : 2
+Ticket Price    : RM21.00
+Ticket Total    : RM42.00
+Product         : None
+Ticket Price    : RM42.00
+Product Total   : RM0.00
+Total           : RM42.00
+Payment Method  : Cash
+----------------------------------
+
+Receipt #2:
+Registration ID        : R2
+Name            : Ming
+Event           : Stephen Tales (E2)
+Tickets         : 1
+Ticket Price    : RM12.00
+Ticket Total    : RM12.00
+Product         : Stephen Rings        x 1 = RM2.00
+Ticket Price    : RM12.00
+Product Total   : RM2.00
+Total           : RM14.00
+Payment Method  : Credit
+----------------------------------
+
+Receipt #3:
+Registration ID        : R3
 Name            : Wei
 Event           : Lebron Tales (E1)
 Tickets         : 2
 Ticket Price    : RM21.00
 Ticket Total    : RM42.00
-Product         : leb1                 x 1 = RM2.00
+Product         : Lebron Dih           x 1 = RM1.00
 Ticket Price    : RM42.00
-Product Total   : RM2.00
-Total           : RM44.00
+Product Total   : RM1.00
+Total           : RM43.00
 Payment Method  : Cash
 ----------------------------------
 

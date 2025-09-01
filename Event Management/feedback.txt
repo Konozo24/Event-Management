@@ -1,8 +1,0 @@
-Feedback #1:
-Guest ID   : G1
-Name       : Wei
-Event Name : Lebron Tales
-Rating     : 2/5
-Comment    : Good
-----------------------------------
-

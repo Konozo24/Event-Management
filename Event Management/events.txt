@@ -1,1 +1,2 @@
-E1|Lebron Tales|12-12-2025|V1|No vendors assigned|21|398
+E1|Lebron Tales|12-12-2025|V1|No vendors assigned|21|384
+E2|Stephen Tales|12-12-2025|V3|No vendors assigned|12|298
