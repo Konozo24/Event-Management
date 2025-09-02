@@ -1,2 +1,1 @@
-G1|Ming||1|Mon Sep  1 23:50:56 2025
-G2|Wei||0|
+G1|Ming||
