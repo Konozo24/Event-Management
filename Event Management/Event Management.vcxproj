@@ -128,6 +128,8 @@
     <ClCompile Include="EventManagement.cpp" />
     <ClCompile Include="Feedback.cpp" />
     <ClCompile Include="Guest.cpp" />
+    <ClCompile Include="History.cpp" />
+    <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Marketing.cpp" />
     <ClCompile Include="Monitoring.cpp" />
@@ -145,6 +147,8 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="Feedback.h" />
     <ClInclude Include="Guest.h" />
+    <ClInclude Include="History.h" />
+    <ClInclude Include="Login.h" />
     <ClInclude Include="Marketing.h" />
     <ClInclude Include="Monitoring.h" />
     <ClInclude Include="Payment.h" />
