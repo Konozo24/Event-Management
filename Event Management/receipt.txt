@@ -1,14 +1,14 @@
 Receipt #1:
 Registration ID        : R1
 Name            : Ming
-Event           : Lebron Tales (E1)
-Tickets         : 2
+Event           : SAD (E1)
+Tickets         : 1
 Ticket Price    : RM21.00
-Ticket Total    : RM42.00
-Product         : Lebron Rings         x 2 = RM2.00
-Ticket Price    : RM42.00
-Product Total   : RM2.00
-Total           : RM44.00
+Ticket Total    : RM21.00
+Product         : SAD rings            x 1 = RM1.00
+Ticket Price    : RM21.00
+Product Total   : RM1.00
+Total           : RM22.00
 Payment Method  : Cash
 ----------------------------------
 

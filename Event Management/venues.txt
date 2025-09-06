@@ -1,5 +1,5 @@
-V1|Skyline Grand Ballroom|400|Downtown City Center|18000|0|1
-V2|Innovation Hub Conference Hall|250|Tech Business Park|12000|0|0
+V1|Skyline Grand Ballroom|400|Downtown City Center|18000|0|2
+V2|Innovation Hub Conference Hall|250|Tech Business Park|12000|0|1
 V3|Garden Pavilion|300|Botanical Gardens|14000|0|1
 V4|Executive Boardroom|50|Corporate Tower|6000|0|0
 V5|University Auditorium|600|City University Campus|20000|0|0

@@ -125,7 +125,6 @@
   <ItemGroup>
     <ClCompile Include="Booking.cpp" />
     <ClCompile Include="Event.cpp" />
-    <ClCompile Include="EventManagement.cpp" />
     <ClCompile Include="Feedback.cpp" />
     <ClCompile Include="Guest.cpp" />
     <ClCompile Include="History.cpp" />
@@ -152,7 +151,6 @@
     <ClInclude Include="Marketing.h" />
     <ClInclude Include="Monitoring.h" />
     <ClInclude Include="Payment.h" />
-    <ClInclude Include="Product.h" />
     <ClInclude Include="Registration.h" />
     <ClInclude Include="Report.h" />
     <ClInclude Include="Tickets.h" />

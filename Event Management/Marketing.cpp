@@ -12,7 +12,6 @@
 #include <cctype>
 using namespace std;
 
-vector<MarketingItem> products;
 
 // ---------------- Helpers ----------------
 static bool isAllDigits(const string& s) {
@@ -85,15 +84,15 @@ static bool readDouble(const string& prompt, double& out, double minVal, double 
     }
 }
 
-static string findEventNameByID(const string& evID) {
-    for (const auto& ev : events) {
+static string findEventNameByID(const string& evID, EventManager& eventManager) {
+    for (const auto& ev : eventManager.getEvents()) {
         if (ev.eventID == evID) return ev.eventName;
     }
     return string();
 }
 
 // ---------------- File I/O ----------------
-void loadProductsFromFile() {
+void MarketingManager::loadProductsFromFile() {
     products.clear();
     ifstream file(PRODUCTS_FILE);
     if (!file.is_open()) return;
@@ -125,7 +124,7 @@ void loadProductsFromFile() {
     file.close();
 }
 
-void saveProductsToFile() {
+void MarketingManager::saveProductsToFile() {
     ofstream file(PRODUCTS_FILE);
     for (const auto& p : products) {
         int q = p.quantity < 0 ? 0 : p.quantity;
@@ -135,7 +134,9 @@ void saveProductsToFile() {
 }
 
 // ---------------- Admin ----------------
-void marketingAdmin() {
+void MarketingManager::marketingAdmin() {
+	EventManager eventManager;
+
     bool done3 = false;
     while (!done3) {
         clearScreen();
@@ -155,19 +156,19 @@ void marketingAdmin() {
         int choice = stoi(choiceLine);
 
         loadProductsFromFile();
-        loadEventsFromFile();
+        eventManager.loadEventsFromFile();
 
         if (choice == 1) {
             // Add product
             clearScreen();
             
-            displayEventsForRegistration();
+            eventManager.displayEventsForRegistration();
 
             cout << "\nEnter Event Name to link product (or 'cancel'): ";
             string evName; getline(cin, evName);
             if (evName == "cancel") { clearScreen(); continue; }
 
-            Event* ev = findEventByName(evName);
+            Event* ev = eventManager.findEventByName(evName);
             if (!ev) { clearScreen(); cout << "Invalid event name! Press Enter..."; cin.get(); clearScreen(); continue; }
 
             cout << "Enter Product Name: ";
@@ -199,7 +200,7 @@ void marketingAdmin() {
             cout << string(60, '=') << endl;
 
             for (size_t i = 0; i < products.size(); ++i) {
-                string evName = findEventNameByID(products[i].eventID);
+                string evName = findEventNameByID(products[i].eventID, eventManager);
                 cout << (i + 1) << ". [" << products[i].eventID << "] " << products[i].name
                     << " | Event: " << (evName.empty() ? "<unknown>" : evName)
                     << " | RM" << fixed << setprecision(2) << products[i].price
@@ -256,7 +257,7 @@ void marketingAdmin() {
             cout << "               ALL PRODUCTS" << endl;
             cout << string(60, '=') << endl;
             for (const auto& p : products) {
-                string evName = findEventNameByID(p.eventID);
+                string evName = findEventNameByID(p.eventID, eventManager);
                 cout << "[" << p.eventID << "] "
                     << left << setw(30) << p.name
                     << " RM" << fixed << setprecision(2) << setw(8) << p.price
@@ -274,19 +275,26 @@ void marketingAdmin() {
 }
 
 // ---------------- User ----------------
-void marketingUser() {
+void MarketingManager::marketingUser() {
+	EventManager eventManager;
+
     bool done3a = false;
     while (!done3a) {
         clearScreen();
-        loadEventsFromFile();
+        eventManager.loadEventsFromFile();
 
-        displayEventsForRegistration();
+        eventManager.displayEventsForRegistration();
 
         cout << "\nEnter Event Name to view products (or 'cancel'): ";
-        string evName; getline(cin, evName);
-        if (evName == "cancel") { clearScreen(); return; }
+        string evName;
+        getline(cin, evName);
 
-        Event* ev = findEventByName(evName);
+        if (evName == "cancel") {
+            clearScreen();
+            return;
+        }
+
+        Event* ev = eventManager.findEventByName(evName);
         if (!ev) {
             clearScreen();
             cout << "Invalid event name! Try again.\nPress Enter...";
@@ -296,70 +304,37 @@ void marketingUser() {
 
         loadProductsFromFile();
         vector<MarketingItem*> evProducts;
-        for (auto& it : products) if (it.eventID == ev->eventID) evProducts.push_back(&it);
+        for (auto& it : products)
+            if (it.eventID == ev->eventID)
+                evProducts.push_back(&it);
 
         clearScreen();
         cout << "\n" << string(60, '=') << endl;
-        cout << "        PRODUCTS FOR EVENT " << ev->eventName << endl;
+        cout << "     PRODUCTS FOR EVENT: " << ev->eventName << endl;
         cout << string(60, '=') << endl;
 
         if (evProducts.empty()) {
             cout << "No products available for this event.\n";
-            cout << "\nPress Enter to return..."; cin.get(); clearScreen(); continue;
+        }
+        else {
+            for (size_t i = 0; i < evProducts.size(); ++i) {
+                auto* p = evProducts[i];
+                cout << setw(3) << (i + 1) << ". "
+                    << left << setw(30) << p->name
+                    << " RM" << fixed << setprecision(2) << setw(8) << p->price
+                    << " Stock: " << p->quantity;
+                if (p->quantity == 0) cout << " (OUT OF STOCK)";
+                cout << "\n";
+            }
         }
 
-        for (size_t i = 0; i < evProducts.size(); ++i) {
-            auto* p = evProducts[i];
-            cout << setw(3) << (i + 1) << ". "
-                << left << setw(30) << p->name
-                << " RM" << fixed << setprecision(2) << setw(8) << p->price
-                << " Stock: " << p->quantity;
-            if (p->quantity == 0) cout << " (OUT OF STOCK)";
-            cout << "\n";
-        }
-
-        cout << "\nEnter product number to buy (or 'cancel'): ";
-        string pick; getline(cin, pick);
-        if (pick == "cancel") { clearScreen(); continue; }
-        if (!isAllDigits(pick)) { clearScreen(); continue; }
-        int idx = 0;
-        try {
-            idx = stoi(pick) - 1;
-        }
-        catch (...) { clearScreen(); continue; }
-        if (idx < 0 || idx >= (int)evProducts.size()) { clearScreen(); continue; }
-
-        MarketingItem* selected = evProducts[idx];
-        if (selected->quantity == 0) { clearScreen(); cout << "This product is out of stock!\nPress Enter..."; cin.get(); continue; }
-
-        int qty;
-        if (!readInt("Enter quantity (or 'cancel'): ", qty, 1, selected->quantity, true)) { clearScreen(); continue; }
-
-        selected->quantity -= qty;
-        if (selected->quantity < 0) selected->quantity = 0;
-        saveProductsToFile();
-
-        // Confirmation screen
-        clearScreen();
-        cout << "\n" << string(60, '=') << endl;
-        cout << "           PURCHASE CONFIRMATION" << endl;
-        cout << string(60, '=') << endl;
-        cout << "Event       : " << ev->eventName << " (" << ev->eventID << ")\n";
-        cout << "Product     : " << selected->name << "\n";
-        cout << "Unit Price  : RM" << fixed << setprecision(2) << selected->price << "\n";
-        cout << "Quantity    : " << qty << "\n";
-        cout << "Total Paid  : RM" << fixed << setprecision(2) << (qty * selected->price) << "\n";
-        cout << string(60, '=') << endl;
-        cout << "Status      : Purchase Successful!" << endl;
-        cout << string(60, '=') << endl;
-
-        cout << "\nPress Enter to continue...";
+        cout << "\nPress Enter to return...";
         cin.get();
         clearScreen();
     }
 }
 
-vector<MarketingItem> selectProductsForEvent(const Event& ev) {
+vector<MarketingItem> MarketingManager::selectProductsForEvent(const Event& ev) {
     vector<MarketingItem> selectedProducts;
 
     loadProductsFromFile();

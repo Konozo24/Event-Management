@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EventManagement.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Venue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -81,9 +78,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Constants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Product.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Payment.h">
